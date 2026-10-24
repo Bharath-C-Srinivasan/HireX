@@ -27,11 +27,11 @@ env/
 ENV/
 .venv/
 
-# Environment files
+# Environment files — NEVER commit real secrets
 .env
 !.env.example
 
-# Databases
+# Databases (SQLite files contain real interview data — never push)
 *.db
 *.db-shm
 *.db-wal
@@ -46,8 +46,30 @@ test_hirex.db
 *.swo
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Testing & Coverage
 .pytest_cache/
 .coverage
 htmlcov/
+.tox/
+
+# AI Tool session data — PERSONAL, must not be pushed
+.gemini/
+.antigravity/
+.cursor/
+.aider*
+.copilot/
+*.aider.chat.history.md
+
+# Logs & runtime artifacts
+*.log
+logs/
+*.pid
+
+# Node (if any tooling is ever added)
+node_modules/
+npm-debug.log*
+
+# Alembic — keep migrations but not lock files
+*.pyc
